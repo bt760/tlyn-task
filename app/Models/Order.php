@@ -6,6 +6,7 @@ use App\Casts\PriceCast;
 use App\Enums\OrderStatusEnum;
 use App\Enums\OrderTypeEnum;
 use Carbon\CarbonInterface;
+use Database\Factories\OrderFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class Order extends Model
 {
+    /** @use HasFactory<OrderFactory> */
     use HasFactory;
 
     protected $fillable = [
