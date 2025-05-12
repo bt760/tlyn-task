@@ -41,4 +41,12 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+
+    public function withProfile(array $profileAttributes = [])
+    {
+        return $this->afterCreating(function ($user) use ($profileAttributes) {
+            $user->profile()->update($profileAttributes);
+        });
+    }
 }

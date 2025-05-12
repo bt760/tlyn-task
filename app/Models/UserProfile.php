@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\PriceCast;
 use Carbon\CarbonInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,6 +27,14 @@ class UserProfile extends Model
         'balance_gold',
     ];
 
+
+    protected function casts()
+    {
+        return [
+            'balance_rial' => PriceCast::class,
+            'balance_gold' => 'decimal:3',
+        ];
+    }
 
     public function user(): BelongsTo
     {
