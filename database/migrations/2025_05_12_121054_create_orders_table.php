@@ -19,7 +19,6 @@ return new class extends Migration
             $table->decimal(column: 'remaining_amount_gram', total: 10, places: 3);
             $table->decimal(column: 'price_per_gram', total: 20, places: 0);
             $table->string(column: 'status')->index();
-            $table->string(column: 'idempotency_key')->nullable();
             $table->timestamps();
         });
     }

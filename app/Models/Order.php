@@ -17,7 +17,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read float $amount_gram
  * @property-read float $remaining_amount_gram
  * @property-read int $price_per_gram
- * @property-read string $idempotency_key
  * @property-read CarbonInterface $created_at
  * @property-read CarbonInterface $updated_at
  *
@@ -33,7 +32,6 @@ class Order extends Model
         'remaining_amount_gram',
         'price_per_gram',
         'status',
-        'idempotency_key',
     ];
 
     protected function casts(): array
