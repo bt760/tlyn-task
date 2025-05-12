@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create(table: 'user_profiles', callback: function (Blueprint $table) {
             $table->id();
             $table->foreignId(column: 'user_id')->constrained()->cascadeOnDelete();
-            $table->decimal(column: 'balance_rial', total: 20, places: 0)->default(0);
-            $table->decimal(column: 'balance_gold', total: 10, places: 3)->default(0)->comment(comment: 'In grams');
+            $table->decimal(column: 'balance_rial', total: 20, places: 0)->default(value: 0);
+            $table->decimal(column: 'balance_gold', total: 10, places: 3)->default(value: 0)->comment(comment: 'In grams');
             $table->timestamps();
         });
     }
