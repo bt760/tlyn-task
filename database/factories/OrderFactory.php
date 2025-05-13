@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Enums\OrderStatusEnum;
-use App\Enums\OrderTypeEnum;
+use App\Enums\OrderStatus;
+use App\Enums\OrderType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -23,34 +23,34 @@ class OrderFactory extends Factory
 
         return [
             'user_id' => User::factory(),
-            'type' => OrderTypeEnum::BUY,
+            'type' => OrderType::BUY,
             'amount_gram' => $amount,
             'remaining_amount_gram' => $amount,
             'price_per_gram' => fake()->numberBetween(int1: 60_000_000, int2: 120_000_000),
-            'status' => OrderStatusEnum::OPEN,
+            'status' => OrderStatus::OPEN,
         ];
     }
 
     public function buy(): static
     {
-        return $this->state(fn(array $attributes) => ['type' => OrderTypeEnum::BUY]);
+        return $this->state(fn(array $attributes) => ['type' => OrderType::BUY]);
     }
 
     public function sell(): static
     {
-        return $this->state(fn(array $attributes) => ['type' => OrderTypeEnum::SELL]);
+        return $this->state(fn(array $attributes) => ['type' => OrderType::SELL]);
     }
 
     public function partial(): static
     {
         return $this->state(fn(array $attributes) => [
             'remaining_amount_gram' => $attributes['amount_gram'] / 2,
-            'status' => OrderStatusEnum::PARTIAL,
+            'status' => OrderStatus::PARTIAL,
         ]);
     }
 
     public function filled(): static
     {
-        return $this->state(fn() => ['remaining_amount_gram' => 0, 'status' => OrderStatusEnum::FILLED]);
+        return $this->state(fn() => ['remaining_amount_gram' => 0, 'status' => OrderStatus::FILLED]);
     }
 }
