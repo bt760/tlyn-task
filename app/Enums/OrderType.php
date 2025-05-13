@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum OrderTypeEnum: string {
+enum OrderType: string {
     case BUY = 'buy';
     case SELL = 'sell';
 }
