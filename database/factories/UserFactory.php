@@ -44,10 +44,10 @@ class UserFactory extends Factory
     }
 
 
-    public function withProfile(array $profileAttributes = [])
+   /* public function withProfile(array $profileAttributes = [])
     {
         return $this->afterCreating(function ($user) use ($profileAttributes) {
             $user->profile()->update($profileAttributes);
         });
-    }
+    }*/
 }

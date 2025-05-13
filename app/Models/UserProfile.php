@@ -30,7 +30,7 @@ class UserProfile extends Model
     ];
 
 
-    protected function casts()
+    protected function casts(): array
     {
         return [
             'balance_rial' => PriceCast::class,

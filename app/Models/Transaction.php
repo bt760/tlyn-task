@@ -18,11 +18,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read int $sell_order_id
  * @property-read float $amount_gram
  * @property-read int $price_per_gram
- * @property-read int $fee_buyer
- * @property-read int $fee_seller
+ * @property-read int $fee
  * @property-read TransactionStatus $status
  * @property-read CarbonInterface $created_at
  * @property-read CarbonInterface $updated_at
+ * @property-read User $buyer
+ * @property-read User $seller
  *
  */
 class Transaction extends Model
@@ -37,8 +38,8 @@ class Transaction extends Model
         'sell_order_id',
         'amount_gram',
         'price_per_gram',
-        'fee_buyer',
-        'fee_seller',
+        'fee',
+        'fee',
         'status',
     ];
 
@@ -46,8 +47,7 @@ class Transaction extends Model
     {
         return  [
             'price_per_gram' => PriceCast::class,
-            'fee_buyer' => PriceCast::class,
-            'fee_seller' => PriceCast::class,
+            'fee' => PriceCast::class,
             'status' => TransactionStatus::class,
         ];
     }

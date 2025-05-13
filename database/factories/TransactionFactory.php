@@ -29,8 +29,7 @@ class TransactionFactory extends Factory
             'sell_order_id' => Order::factory()->sell(),
             'amount_gram' => $amount,
             'price_per_gram' => fake()->numberBetween(int1: 60_000_000, int2: 120_000_000),
-            'fee_buyer' => 1000,
-            'fee_seller' => 1000,
+            'fee' => 1000,
             'status' => TransactionStatus::COMPLETED,
         ];
     }
