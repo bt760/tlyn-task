@@ -15,13 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId(column: 'buyer_id')->constrained(table: 'users');
             $table->foreignId(column: 'seller_id')->constrained(table: 'users');
-            $table->foreignId(column: 'order_buy_id')->constrained(table: 'orders');
-            $table->foreignId(column: 'order_sell_id')->constrained(table: 'orders');
+            $table->foreignId(column: 'buy_order_id')->constrained(table: 'orders');
+            $table->foreignId(column: 'sell_order_id')->constrained(table: 'orders');
             $table->decimal(column: 'amount_gram', total: 10, places: 3);
             $table->decimal(column: 'price_per_gram', total: 20, places: 0);
-            $table->decimal(column: 'fee_buyer', total: 20, places: 0);
-            $table->decimal(column: 'fee_seller', total: 20, places: 0);
-            $table->string(column: 'status', length: 50)->index();
+            $table->decimal(column: 'fee', total: 20, places: 0);
+            $table->string(column: 'status', length: 20)->index();
 
             $table->timestamps();
         });
